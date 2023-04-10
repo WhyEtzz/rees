@@ -1628,7 +1628,7 @@ break
           msg
         );
         try {
-          const {data = getyts} = await axios.get("https://shorturl.tesqreplitt.repl.co/yts/"+q)
+          const {data: getyts} = await axios.get("https://shorturl.tesqreplitt.repl.co/yts/"+q)
           let afhasuyduytsduyt = `┌──「 *YT SEARCH* 」\n│\n`;
 
           for (i of getyts.all) {
