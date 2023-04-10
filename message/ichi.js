@@ -28,7 +28,6 @@ const xfar = require("xfarr-api");
 const hxz = require("hxz-api");
 const Carbon = require("unofficial-carbon-now");
 const tesseract = require("node-tesseract-ocr");
-const yts = require("yt-search");
 const translate = require("translate-google");
 const anime = require("mal-scraper")
 
@@ -1629,7 +1628,7 @@ break
           msg
         );
         try {
-          const getyts = await yts(q);
+          const {data = getyts} = await axios.get("https://shorturl.tesqreplitt.repl.co/yts/"+q)
           let afhasuyduytsduyt = `┌──「 *YT SEARCH* 」\n│\n`;
 
           for (i of getyts.all) {
