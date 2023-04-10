@@ -1653,7 +1653,7 @@ break
           msg
         );
         try {
-          const waitget = await yts(q);
+          const {data: waitget} = await axios.get("https://shorturl.tesqreplitt.repl.co/yts/"+q);
           const glink = await yt(waitget.all[0].url);
           let size = parseFloat(glink.size.match(/\d+(\.\d+)?/)[0]);
           if (glink.size.includes("MB") && size > 75) return textImg("You Can Only Download Max 75MB")
