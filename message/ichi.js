@@ -238,7 +238,7 @@ async function dc(title, dec, foot, color) {
     console.log(data)
   
   }
-  dc(`${command}`, `*Request By:*\n${sender.split("@")[0]} (${pushname})`, moment(msg.messageTimestamp * 1000).format("DD/MM/YY HH:mm:ss"), "4caee2")
+  //dc(`${command}`, `*Request By:*\n${sender.split("@")[0]} (${pushname})`, moment(msg.messageTimestamp * 1000).format("DD/MM/YY HH:mm:ss"), "4caee2")
     }
 
     // only mute
