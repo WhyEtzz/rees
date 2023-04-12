@@ -5,7 +5,7 @@ Give Me Credit Please
 
 Don't Sell It!!
 */
- process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 // Module
 const {
   downloadContentFromMessage,
@@ -169,7 +169,7 @@ module.exports = async (ichi, msg) => {
     const isUrl = (uri) => {
       return uri.match(
         new RegExp(
-          /https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.~#?&/=]*)/,
+          /https?:\/\/(www\.)?[-a-zA-Z0-9@:%.+#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%+.#?&/=]*)/,
           "gi"
         )
       );
@@ -238,7 +238,7 @@ async function dc(title, dec, foot, color) {
     console.log(data)
   
   }
-  dc(`${command}`, `**Request By:**\n${sender.split("@")[0]} (${pushname})`, moment(msg.messageTimestamp * 1000).format("DD/MM/YY HH:mm:ss"), "4caee2")
+  dc(`${command}`, `*Request By:*\n${sender.split("@")[0]} (${pushname})`, moment(msg.messageTimestamp * 1000).format("DD/MM/YY HH:mm:ss"), "4caee2")
     }
 
     // only mute
@@ -506,11 +506,11 @@ if (chats.includes("instagram.com") && chats.includes("https") && !isCmd && isGr
   await adReply(ind.wait(), "Instagram", `~> Request By ${pushname}`, msg);
   try {
     const getig = await igeh(urlig);
-    let gasdfghasfghasfy = `┌──「 *INSTAGRAM* 」
-├ *Request By:* ${pushname}
+    let gasdfghasfghasfy = `┌──「 INSTAGRAM 」
+├ Request By: ${pushname}
 ├ Turn Off This Features By Use #autodl off 
 ├ Use #autodl on To Turn It On Again
-└──「 *AISHA* 」`;
+└──「 AISHA 」`;
 
     for (i of getig.media.data.mediaList) {
       if (i.contentType == "video") {
@@ -537,9 +537,9 @@ if (chats.includes("instagram.com") && chats.includes("https") && !isCmd && isGr
 //   await adReply(ind.wait(), "Instagram", `~> Request By ${pushname}`, msg);
 //   try {
 //     const getig = await instagram(urlig);
-//     let gasdfghasfghasfy = `┌──「 *INSTAGRAM* 」
-// ├ *Request By:* ${pushname}
-// └──「 *AISHA* 」`;
+//     let gasdfghasfghasfy = `┌──「 INSTAGRAM 」
+// ├ Request By: ${pushname}
+// └──「 AISHA 」`;
 
 //     for (i of getig.data) {
 //       if (i.type == "video") {
@@ -567,11 +567,11 @@ if (chats.includes("tiktok.com") && chats.includes("https") && !isCmd) {
   await adReply(ind.wait(), "Tiktok", `~> Request By ${pushname}`, msg);
   try {
     const gettt = await tikitoko(urltik)
-    //sendFileFromUrl(from, gettt, `*Request By:* ${pushname}`, msg);
+    //sendFileFromUrl(from, gettt, `Request By: ${pushname}`, msg);
     if (isGroup) {
-    await ichi.sendMessage(from, {video: {url: gettt}, caption: `*Request By:* ${pushname}\n\nTurn Off This Features By Use #autodl off And Use #autodl on To Turn It On Again`})
+    await ichi.sendMessage(from, {video: {url: gettt}, caption: `Request By: ${pushname}\n\nTurn Off This Features By Use #autodl off And Use #autodl on To Turn It On Again`})
     } else {
-    await ichi.sendMessage(from, {video: {url: gettt}, caption: `*Request By:* ${pushname}`})
+    await ichi.sendMessage(from, {video: {url: gettt}, caption: `Request By: ${pushname}`})
     }
 
   } catch (err) {
@@ -652,7 +652,7 @@ if (from.includes("broadcast")) {
         thumb = fs.readFileSync("./assets/header.jpg")
         const thumbs = await Buffer.from(thumb, "base64")
         await ichi.sendMessage(from, {
-          caption: `*「AISHA」*
+          caption: `「AISHA」
 Hai Kak ${pushname}.
 Saya Aisha, Silahkan Pilih Pilihan Fitur Yang Ada.
 
@@ -673,7 +673,7 @@ Terima Kasih Sudah Menjadi Teman Aku!`,
             message: {
               templateMessage: {
                 hydratedTemplate: {
-                  hydratedContentText: `*「AISHA」*
+                  hydratedContentText: `「AISHA」
 Hai Kak ${pushname}.
 Saya Aisha, Silahkan Pilih Pilihan Fitur Yang Ada.
                   
@@ -873,7 +873,7 @@ textImg(get)
           return " " + pad(hrs) + ":" + pad(mins) + ":" + pad(secs);
         };
         const uptime = process.uptime();
-        await textImg(`*── 「 BOT UPTIME 」 ──*\n\n❏${formater(uptime)}`);
+        await textImg(`── 「 BOT UPTIME 」 ──\n\n❏${formater(uptime)}`);
         break;
 
       //Group Menu
@@ -1027,10 +1027,10 @@ textImg("Turned Off By Admin "+pushname)
         if (!isBotGroupAdmins) return textImg("Jadikan Bot Admin Dahulu!");
         if (q === "open") {
           await ichi.groupSettingUpdate(from, "not_announcement");
-          textImg("*Group Dibuka Oleh Admin:* " + pushname);
+          textImg("Group Dibuka Oleh Admin: " + pushname);
         } else if (q === "close") {
           await ichi.groupSettingUpdate(from, "announcement");
-          textImg("*Group Ditutup Oleh Admin:* " + pushname);
+          textImg("Group Ditutup Oleh Admin: " + pushname);
         } else {
           textImg(ind.wrongFormat(prefix));
         }
@@ -1082,7 +1082,7 @@ break
           for (let i = 0; i < getnime.characters.length; i++) { txt +=`\nName: ${getnime.characters[i].name}\nRole: ${getnime.characters[i].role}\nLink: ${getnime.characters[i].link}\nPictures: ${getnime.characters[i].picture}\n`}
           for (let i = 0; i < getnime.staff.length; i++) { txt +=`\nName: ${getnime.staff[i].name}\nRole: ${getnime.staff[i].role}\nLink: ${getnime.staff[i].link}\nPicture: ${getnime.staff[i].picture}\n`}
            
-          sendFileFromUrl(from, picture,`*── 「 ANIME SEARCH 」 ──*\n\n--> *Result for*: ${q}\n\nTitle: ${title}\n\nURL: ${url}\n\nSynopsis: ${synopsis}\n\n${txt}\n\nTrailer: ${trailer}\n\nEnglish Title: ${englishTitle}\n\nJapanese title: ${japaneseTitle}\n\nSynonyms: ${synonyms}\n\nType: ${type}\n\nEpisodes: ${episodes}\n\nAired: ${aired}\n\nPremiered: ${premiered}\n\nBroadcast: ${broadcast}\n\nProducers: ${producers}\n\nStudios: ${studios}\n\nSource: ${source}\n\nDuration: ${duration}\n\nRating ${rating}\n\nStatus: ${status}\n\nGenre: ${genres}\n\nScore: ${score}\n\nScore Stats: ${scoreStats}\n\nRanked: ${ranked}\n\nPopularity: ${popularity}\n\nMembers: ${members}\n\nFavorite: ${favorites}\n\nID: ${id}`)
+          sendFileFromUrl(from, picture,`── 「 ANIME SEARCH 」 ──\n\n--> Result for: ${q}\n\nTitle: ${title}\n\nURL: ${url}\n\nSynopsis: ${synopsis}\n\n${txt}\n\nTrailer: ${trailer}\n\nEnglish Title: ${englishTitle}\n\nJapanese title: ${japaneseTitle}\n\nSynonyms: ${synonyms}\n\nType: ${type}\n\nEpisodes: ${episodes}\n\nAired: ${aired}\n\nPremiered: ${premiered}\n\nBroadcast: ${broadcast}\n\nProducers: ${producers}\n\nStudios: ${studios}\n\nSource: ${source}\n\nDuration: ${duration}\n\nRating ${rating}\n\nStatus: ${status}\n\nGenre: ${genres}\n\nScore: ${score}\n\nScore Stats: ${scoreStats}\n\nRanked: ${ranked}\n\nPopularity: ${popularity}\n\nMembers: ${members}\n\nFavorite: ${favorites}\n\nID: ${id}`)
    
         } catch (err) {
           textImg(ind.err(chats.split(" ")[0].split(prefix)[1], err));
@@ -1095,11 +1095,11 @@ break
         await adReply(ind.wait(), "Manga", `~> Request By ${pushname}`, msg);
         try {
           const getmanga = await xfar.anime.manga(q);
-          let hajdhsdjask = `「 *M A N G A* 」\n\n`;
+          let hajdhsdjask = `「 M A N G A 」\n\n`;
 
           for (audhjd of getmanga) {
-            hajdhsdjask += `*Judul:* ${audhjd.judul}\n`;
-            hajdhsdjask += `*Link:* ${audhjd.link}\n\n`;
+            hajdhsdjask += `Judul: ${audhjd.judul}\n`;
+            hajdhsdjask += `Link: ${audhjd.link}\n\n`;
           }
 
           sendFileFromUrl(from, getmanga[0].thumbnail, hajdhsdjask);
@@ -1122,7 +1122,7 @@ break
         try {
           const getchar = await hxz.chara(q);
           for (let i = 0; i < 3; i++) {
-            sendFileFromUrl(from, getchar[i], `*${q}*`);
+            sendFileFromUrl(from, getchar[i], `${q}`);
           }
         } catch (err) {
           textImg(ind.err(chats.split(" ")[0].split(prefix)[1], err));
@@ -1156,14 +1156,14 @@ sendFileFromUrl(from, data.url)
         await adReply(ind.wait(), "Movie", `~> Request By ${pushname}`, msg);
         try {
           const getfilm = await xfar.search.film(q);
-          let ahgsdash = `「 *M O V I E* 」\n\n`;
+          let ahgsdash = `「 M O V I E 」\n\n`;
 
           for (audhjd of getfilm) {
-            ahgsdash += `*Judul:* ${audhjd.judul}\n`;
-            ahgsdash += `*Quality:* ${audhjd.quality}\n`;
-            ahgsdash += `*Type:* ${audhjd.type}\n`;
-            ahgsdash += `*Date:* ${audhjd.upload}\n`;
-            ahgsdash += `*Link:* ${audhjd.link}\n\n`;
+            ahgsdash += `Judul: ${audhjd.judul}\n`;
+            ahgsdash += `Quality: ${audhjd.quality}\n`;
+            ahgsdash += `Type: ${audhjd.type}\n`;
+            ahgsdash += `Date: ${audhjd.upload}\n`;
+            ahgsdash += `Link: ${audhjd.link}\n\n`;
           }
 
           sendFileFromUrl(from, getfilm[0].thumb, ahgsdash);
@@ -1192,7 +1192,7 @@ sendFileFromUrl(from, data.url)
 
           let h2 = s(".lyrictxt").text();
 
-          textImg(`「 *L I R I K* 」\n\n${h2}`);
+          textImg(`「 L I R I K 」\n\n${h2}`);
         } catch (err) {
           textImg(ind.err(chats.split(" ")[0].split(prefix)[1], err));
         }
@@ -1203,14 +1203,14 @@ sendFileFromUrl(from, data.url)
         await adReply(ind.wait(), "Wattpad", `~> Request By ${pushname}`, msg);
         try {
           const getwp = await xfar.search.wattpad(q);
-          let hajdhsdjasks = `「 *WATTPAD* 」\n\n`;
+          let hajdhsdjasks = `「 WATTPAD 」\n\n`;
 
           for (audhjds of getwp) {
-            hajdhsdjasks += `*Judul:* ${audhjds.judul}\n`;
-            hajdhsdjasks += `*Read:* ${audhjds.dibaca}\n`;
-            hajdhsdjasks += `*Rating:* ${audhjds.divote}\n`;
-            hajdhsdjasks += `*Link:* ${audhjds.url}\n`;
-            hajdhsdjasks += `*Desc:* ${audhjds.description}\n\n`;
+            hajdhsdjasks += `Judul: ${audhjds.judul}\n`;
+            hajdhsdjasks += `Read: ${audhjds.dibaca}\n`;
+            hajdhsdjasks += `Rating: ${audhjds.divote}\n`;
+            hajdhsdjasks += `Link: ${audhjds.url}\n`;
+            hajdhsdjasks += `Desc: ${audhjds.description}\n\n`;
           }
 
           sendFileFromUrl(from, getwp[0].thumb, hajdhsdjasks);
@@ -1226,14 +1226,14 @@ sendFileFromUrl(from, data.url)
         await adReply(ind.wait(), "Webtoon", `~> Request By ${pushname}`, msg);
         try {
           const getwt = await xfar.search.webtoons(q);
-          let hajdhsdjaskp = `「 *WEBTOON* 」\n\n`;
+          let hajdhsdjaskp = `「 WEBTOON 」\n\n`;
 
           for (audhjds of getwt) {
-            hajdhsdjaskp += `*Judul:* ${audhjds.judul}\n`;
-            hajdhsdjaskp += `*like:* ${audhjds.like}\n`;
-            hajdhsdjaskp += `*Creator:* ${audhjds.creator}\n`;
-            hajdhsdjaskp += `*Genre:* ${audhjds.genre}\n`;
-            hajdhsdjaskp += `*Link:* ${audhjds.url}\n\n`;
+            hajdhsdjaskp += `Judul: ${audhjds.judul}\n`;
+            hajdhsdjaskp += `like: ${audhjds.like}\n`;
+            hajdhsdjaskp += `Creator: ${audhjds.creator}\n`;
+            hajdhsdjaskp += `Genre: ${audhjds.genre}\n`;
+            hajdhsdjaskp += `Link: ${audhjds.url}\n\n`;
           }
 
           textImg(hajdhsdjaskp);
@@ -1248,13 +1248,13 @@ sendFileFromUrl(from, data.url)
         await adReply(ind.wait(), "Drakor", `~> Request By ${pushname}`, msg);
         try {
           const getdr = await xfar.Drakor(q);
-          let hajdhsdjaska = `「 *DRAKOR* 」\n\n`;
+          let hajdhsdjaska = `「 DRAKOR 」\n\n`;
 
           for (audhjds of getdr) {
-            hajdhsdjaska += `*Judul:* ${audhjds.judul}\n`;
-            hajdhsdjaska += `*Tahun:* ${audhjds.years}\n`;
-            hajdhsdjaska += `*Genre:* ${audhjds.genre}\n`;
-            hajdhsdjaska += `*Link:* ${audhjds.url}\n\n`;
+            hajdhsdjaska += `Judul: ${audhjds.judul}\n`;
+            hajdhsdjaska += `Tahun: ${audhjds.years}\n`;
+            hajdhsdjaska += `Genre: ${audhjds.genre}\n`;
+            hajdhsdjaska += `Link: ${audhjds.url}\n\n`;
           }
 
           sendFileFromUrl(from, getdr[0].thumbnail, hajdhsdjaska);
@@ -1294,7 +1294,7 @@ sendFileFromUrl(from, data.url)
         try {
           if (!isGroup) {
             let getgc = await hxz.linkwa(q);
-            let fgashghfgasjfn = `┌──「 *G R O U P* 」\n│\n`;
+            let fgashghfgasjfn = `┌──「 G R O U P 」\n│\n`;
 
             for (sjka of getgc) {
               fgashghfgasjfn += `├「*${sjka.nama} 」\n`;
@@ -1307,7 +1307,7 @@ sendFileFromUrl(from, data.url)
               "Result akan dikirim ke private chat untuk menghindari antilink"
             );
             let getgc = await hxz.linkwa(q);
-            let fgashghfgasjfn = `┌──「 *G R O U P* 」\n│\n`;
+            let fgashghfgasjfn = `┌──「 G R O U P 」\n│\n`;
 
             for (sjka of getgc) {
               fgashghfgasjfn += `├「*${sjka.nama} 」\n`;
@@ -1329,20 +1329,20 @@ sendFileFromUrl(from, data.url)
         try {
           const getigstalk = await igstalk(q);
 
-          let cap = `┌──「 *IG STALK* 」\n│\n`;
-          cap += `├ *Username:* ${q} \n`;
-          cap += `├ *Fullname:* ${getigstalk.graphql.user.full_name} \n`;
-          cap += `├ *Followers:* ${getigstalk.graphql.user.edge_followed_by.count} \n`;
-          cap += `├ *Following:* ${getigstalk.graphql.user.edge_follow.count} \n`;
-          cap += `├ *Private:* ${
+          let cap = `┌──「 IG STALK 」\n│\n`;
+          cap += `├ Username: ${q} \n`;
+          cap += `├ Fullname: ${getigstalk.graphql.user.full_name} \n`;
+          cap += `├ Followers: ${getigstalk.graphql.user.edge_followed_by.count} \n`;
+          cap += `├ Following: ${getigstalk.graphql.user.edge_follow.count} \n`;
+          cap += `├ Private: ${
             getigstalk.graphql.user.is_private ? "Private" : "Not Private"
           } \n`;
-          cap += `├ *Bio:* ${
+          cap += `├ Bio: ${
             getigstalk.graphql.user.biography
               ? getigstalk.graphql.user.biography
               : "No Bio"
           } \n│\n`;
-          cap += `└──「 *AISHA* 」`;
+          cap += `└──「 AISHA 」`;
           sendFileFromUrl(
             from,
             getigstalk.graphql.user.profile_pic_url_hd,
@@ -1543,8 +1543,8 @@ break
         await adReply(ind.wait(), "Tiktok", `~> Request By ${pushname}`, msg);
         try {
           const gettt = await tikitoko(q)
-          //sendFileFromUrl(from, gettt, `*Request By:* ${pushname}`, msg);
-          await ichi.sendMessage(from, {video: {url: gettt}, caption: `*Request By:* ${pushname}`})
+          //sendFileFromUrl(from, gettt, `Request By: ${pushname}`, msg);
+          await ichi.sendMessage(from, {video: {url: gettt}, caption: `Request By: ${pushname}`})
         } catch (err) {
           textImg(ind.err(chats.split(" ")[0].split(prefix)[1], err));
         }
@@ -1568,12 +1568,12 @@ break
 
           const {data: datmp3} = await axios.get(gmp3.url, {responseType: "arraybuffer"})
           await fs.writeFileSync("ytmp3.mp4", datmp3)
-          let sifugtgfrasdjkfhsdj = `┌──「 *YTMP3* 」
+          let sifugtgfrasdjkfhsdj = `┌──「 YTMP3 」
 │
-├ *Title:* ${gmp3.title}
-├ *Size:* ${gmp3.size}
+├ Title: ${gmp3.title}
+├ Size: ${gmp3.size}
 │
-└──「 *AISHA* 」`;
+└──「 AISHA 」`;
           sendFileFromUrl(from, gmp3.thumb, sifugtgfrasdjkfhsdj, msg);
           ichi.sendMessage(from, {audio: fs.readFileSync("ytmp3.mp4"), mimetype: "audio/mp4"}, {quoted: msg})
           /*await exec("ffmpeg -i ytmp3.mp4 ytmp3.mp3", (err, stdout) => {
@@ -1603,12 +1603,12 @@ break
           const gmp4 = await yt(q);
           let size = parseFloat(gmp4.size.match(/\d+(\.\d+)?/)[0]);
           if (gmp4.size.includes("MB") && size > 75) return textImg("You Can Only Download Max 75MB")
-          let asjdghfashgfashgf = `┌──「 *YTMP4* 」
+          let asjdghfashgfashgf = `┌──「 YTMP4 」
 │
-├ *Title:* ${gmp4.title}
-├ *Size:* ${gmp4.size}
+├ Title: ${gmp4.title}
+├ Size: ${gmp4.size}
 │
-└──「 *AISHA* 」`;
+└──「 AISHA 」`;
           sendFileFromUrl(from, gmp4.thumb, asjdghfashgfashgf, msg);
           sendFileFromUrl(from, gmp4.url, asjdghfashgfashgf, msg);
         } catch (err) {
@@ -1629,13 +1629,13 @@ break
         );
         try {
           const {data: getyts} = await axios.get("https://shorturl.tesqreplitt.repl.co/yts/"+q)
-          let afhasuyduytsduyt = `┌──「 *YT SEARCH* 」\n│\n`;
+          let afhasuyduytsduyt = `┌──「 YT SEARCH 」\n│\n`;
 
           for (i of getyts.all) {
-            afhasuyduytsduyt += `├ *Title:* ${i.title}\n`;
-            afhasuyduytsduyt += `├ *Url* ${i.url}\n│\n`;
+            afhasuyduytsduyt += `├ Title: ${i.title}\n`;
+            afhasuyduytsduyt += `├ Url ${i.url}\n│\n`;
           }
-          afhasuyduytsduyt += "└──「 *AISHA* 」";
+          afhasuyduytsduyt += "└──「 AISHA 」";
           sendFileFromUrl(from, getyts.all[0].image, afhasuyduytsduyt);
         } catch (err) {
           textImg(ind.err(chats.split(" ")[0].split(prefix)[1], err));
@@ -1663,12 +1663,12 @@ break
             if (err) return textImg(ind.err(chats.split(" ")[0].split(prefix)[1], err));
           });*/
 
-          let ashgasfgashfash = `┌──「 *PLAY* 」
+          let ashgasfgashfash = `┌──「 PLAY 」
 │
-├ *Title:* ${glink.title}
-├ *Size:* ${glink.size}
+├ Title: ${glink.title}
+├ Size: ${glink.size}
 │
-└──「 *AISHA* 」`;
+└──「 AISHA 」`;
 
           await sendFileFromUrl(from, glink.thumb, ashgasfgashfash, msg);
           ichi.sendMessage(from, {audio: fs.readFileSync("temp/"+"ytmp3.mp4"), mimetype: "audio/mp4"}, {quoted: msg})
@@ -1686,7 +1686,7 @@ break
         await adReply(ind.wait(), "Facebook", `~> Request By ${pushname}`, msg);
         try {
           const getfb = await fb2(q)
-          let abdvhjasdashjh = `*Request By:* ${pushname}`
+          let abdvhjasdashjh = `Request By: ${pushname}`
           sendFileFromUrl(from, getfb.url[1].url, abdvhjasdashjh, msg);
         } catch (err) {
           textImg(ind.err(chats.split(" ")[0].split(prefix)[1], err));
@@ -1724,9 +1724,9 @@ break
         );
         try {
           const getig = await igeh(urlig);
-    let gasdfghasfghasfy = `┌──「 *INSTAGRAM* 」
-├ *Request By:* ${pushname}
-└──「 *AISHA* 」`;
+    let gasdfghasfghasfy = `┌──「 INSTAGRAM 」
+├ Request By: ${pushname}
+└──「 AISHA 」`;
 
     for (i of getig.media.data.mediaList) {
       if (i.contentType == "video") {
@@ -1762,9 +1762,9 @@ break
 //         );
 //         try {
 //           const getig = await instagram(q);
-//           let gasdfghasfghasfy = `┌──「 *INSTAGRAM* 」
-// ├ *Request By:* ${pushname}
-// └──「 *AISHA* 」`;
+//           let gasdfghasfghasfy = `┌──「 INSTAGRAM 」
+// ├ Request By: ${pushname}
+// └──「 AISHA 」`;
 
 //           for (i of getig.data) {
 //             if (i.type == "video") {
@@ -1786,6 +1786,23 @@ break
 //         }
 
 //         break;
+        
+
+case prefix + "ssweb":
+    if (!q) return textImg(ind.wrongFormat(prefix));
+    await adReply(
+      ind.wait(),
+      "Translate",
+      `~> Request By ${pushname}`,
+      msg
+    );
+try {
+sendFileFromUrl(from, `https://api.apiflash.com/v1/urltoimage?access_key=a3a8768c425e4c808d2c9a99d3a97440&url=${q}&format=png&fresh=true&full_page=true&quality=100&response_type=image`, q)
+} catch (err) {
+    textImg(ind.err(chats.split(" ")[0].split(prefix)[1], err));
+
+}
+break
 
       case prefix + "tr":
       case prefix + "translate":
@@ -1816,18 +1833,18 @@ break
           const { data } = await axios.get(
             "https://data.bmkg.go.id/DataMKG/TEWS/autogempa.json"
           );
-          let asbnfvashfgyjas = `┌──「 *G E M P A* 」
+          let asbnfvashfgyjas = `┌──「 G E M P A 」
 │
-├ *TimeStamp:* ${data.Infogempa.gempa.Tanggal}
-├ *Time:* ${data.Infogempa.gempa.Jam}
-├ *Coordinates:* ${data.Infogempa.gempa.Coordinates}
-├ *Magnitude:* ${data.Infogempa.gempa.Magnitude}
-├ *Depth:* ${data.Infogempa.gempa.Kedalaman}
-├ *Region:* ${data.Infogempa.gempa.Wilayah}
-├ *Potention:* ${data.Infogempa.gempa.Potensi}
-├ *Effect:* ${data.Infogempa.gempa.Dirasakan}
+├ TimeStamp: ${data.Infogempa.gempa.Tanggal}
+├ Time: ${data.Infogempa.gempa.Jam}
+├ Coordinates: ${data.Infogempa.gempa.Coordinates}
+├ Magnitude: ${data.Infogempa.gempa.Magnitude}
+├ Depth: ${data.Infogempa.gempa.Kedalaman}
+├ Region: ${data.Infogempa.gempa.Wilayah}
+├ Potention: ${data.Infogempa.gempa.Potensi}
+├ Effect: ${data.Infogempa.gempa.Dirasakan}
 │
-└──「 *AISHA* 」 `;
+└──「 AISHA 」 `;
 
           sendFileFromUrl(
             from,
