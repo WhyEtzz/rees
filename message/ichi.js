@@ -512,17 +512,17 @@ if (chats.includes("instagram.com") && chats.includes("https") && !isCmd && isGr
 ├ Use #autodl on To Turn It On Again
 └──「 AISHA 」`;
 
-    for (i of getig.media.data.mediaList) {
-      if (i.contentType == "video") {
+    for (i of getig) {
+      if (i.type == "video") {
         ichi.sendMessage(
           from,
-          { video: { url: i.videos[0].url }, caption: gasdfghasfghasfy },
+          { video: { url: i.url }, caption: gasdfghasfghasfy },
           { quoted: msg }
         );
       } else {
         ichi.sendMessage(
           from,
-          { image: { url: i.images[0].url }, caption: gasdfghasfghasfy },
+          { image: { url: i.url }, caption: gasdfghasfghasfy },
           { quoted: msg }
         );
       }
@@ -1728,17 +1728,17 @@ break
 ├ Request By: ${pushname}
 └──「 AISHA 」`;
 
-    for (i of getig.media.data.mediaList) {
-      if (i.contentType == "video") {
+   for (i of getig) {
+      if (i.type == "video") {
         ichi.sendMessage(
           from,
-          { video: { url: i.videos[0].url }, caption: gasdfghasfghasfy },
+          { video: { url: i.url }, caption: gasdfghasfghasfy },
           { quoted: msg }
         );
       } else {
         ichi.sendMessage(
           from,
-          { image: { url: i.images[0].url }, caption: gasdfghasfghasfy },
+          { image: { url: i.url }, caption: gasdfghasfghasfy },
           { quoted: msg }
         );
       }
