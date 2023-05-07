@@ -514,17 +514,9 @@ if (chats.includes("instagram.com") && chats.includes("https") && !isCmd && isGr
 
     for (i of getig) {
       if (i.type == "video") {
-        ichi.sendMessage(
-          from,
-          { video: { url: i.url }, caption: gasdfghasfghasfy },
-          { quoted: msg }
-        );
+        sendFileFromUrl(from, i.url)
       } else {
-        ichi.sendMessage(
-          from,
-          { image: { url: i.url }, caption: gasdfghasfghasfy },
-          { quoted: msg }
-        );
+        sendFileFromUrl(from, i.url)
       }
     }
   } catch (err) {
