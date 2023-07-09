@@ -182,7 +182,7 @@ const startSock = async() => {
 						require('./message/ichi.js')(sock, msg)
 						if(!msg.key.fromMe && doReplies) {
 							console.log('replying to', msg.key.remoteJid)
-							await sock!.readMessages([msg.key])
+							
 						}
 					}
 				}
