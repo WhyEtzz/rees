@@ -134,6 +134,7 @@ return `┌──「 *AISHA* 」
 ├「 INFO-MENU 」
 ├ ${prefix}translate (kode bahasa|kalimat)
 ├ ${prefix}gempa
+├ ${prefix}ai
 │
 ├「 Thanks To」
 ├ Geni-Panas Team
