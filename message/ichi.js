@@ -31,6 +31,7 @@ const tesseract = require("node-tesseract-ocr");
 const translate = require("translate-google");
 const anime = require("mal-scraper")
 
+
 //------------------------------------------------------------------------
 // Library
 
@@ -61,6 +62,7 @@ const {instagram} = require ("../lib/igpost.js")
 const {fb2} = require("../lib/fb2")
 const {create: tikitoko} = require("../lib/tiktok")
 const {nam: igeh} = require("../lib/instagram")
+const {gpt} = require("../lib/chatgpt.js")
 const anti = JSON.parse(fs.readFileSync("./lib/anti.json"))
 const onlyGC = fs.readFileSync("./message/db.json")
 const filgc = JSON.parse(onlyGC)
@@ -1849,6 +1851,25 @@ break
         }
 
         break;
+
+
+        case prefix + "ai":
+                await adReply(
+                  ind.wait(),
+                  "Chat AI",
+                  `~> Request By ${pushname}`,
+                  msg
+                );
+                try {
+                  const gst = await gpt(q)
+                  textImg(gst.reply)
+                  
+                } catch (err) {
+                  textImg(ind.err(chats.split(" ")[0].split(prefix)[1], err));
+                }
+        
+                break;
+        
       //----------------------------------------------------------------------------------------------------
     }
   } catch (err) {
